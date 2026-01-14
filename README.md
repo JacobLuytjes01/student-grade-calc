@@ -1,4 +1,3 @@
-A website that calculates a grades based on inputted grades and weights. 
+A website that dynamically calculates the final grade based on input grades and weights.
 
-
-# React + Vite
+Made with React + Vite
