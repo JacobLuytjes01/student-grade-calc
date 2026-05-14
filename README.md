@@ -1,3 +1,19 @@
-A website that dynamically calculates the final grade based on input grades and weights.
+# Student Grade Calculator
+A React web app to calculate final grades based on assignments.
 
-Made with React + Vite
+## Features
+- Add the grade and weight of each assignment.
+- See the final grade as a percent and letter grade.
+- Customizable letter grade thresholds
+- Responsive design for desktop and mobile use
+
+## Tech Stack
+- React
+- Vite
+- JavaScript
+- CSS
+
+## Using it locally
+- Download repo
+- Have Node.js installed (I use v20.19.4)
+- Run ```npm install``` then ```npm run dev```
