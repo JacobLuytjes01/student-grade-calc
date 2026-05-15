@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import './App.css'
-import GradeList from "./components/GradeList.jsx";
 import GradeThresholdBox from "./components/GradeThresholdBox.jsx";
+import GradeBox from "./components/GradeBox.jsx";
 
 function App() {
     const [grades, setGrades] = useState([0]);
@@ -57,26 +57,38 @@ function App() {
     const letter = calculateLetterGrade();
 
     return <main>
-        <h1 className="grade">Grade {letter}: {final.toFixed(2)}% / {isBasedOnWeights ? totalWeight.toFixed(2) : "100"}%</h1>
-        <GradeList name={"Grades"} count={rows} updateGrade={updateGrade} updateWeight={updateWeight}/>
-        <button type="button" id="buttonAdd" onClick={addBox}>Add Assignment</button>
-        {rows > 1 && <button type="button" id="buttonRemove" onClick={removeBox}>Remove Assignment</button>}
-        <div>Settings</div>
+        <h1 className="grade">Grade {letter}: {final.toFixed(2)}% / {isBasedOnWeights ? totalWeight : "100"}%</h1>
         <div className="GradeBox">
+            Grades
+            <div className="aboveLabels">
+                <label>Assignments</label>
+                <label>Grades (0-100)</label>
+                <label>Weights (0-100)</label>
+            </div>
+            {Array.from({length: rows}, (_, i) => (
+                <GradeBox key={`GB${i}`} i={i} updateGrade={updateGrade} updateWeight={updateWeight}/>))}
+            <button type="button" id="buttonAdd" onClick={addBox}>Add Assignment</button>
+            {rows > 1 && <button type="button" id="buttonRemove" onClick={removeBox}>Remove Assignment</button>}
+        </div>
+
+        <div className="GradeBox">
+            <div>Settings</div>
             <div className="GridBox2">
                 {letterGrades.map((letter, index) =>
-                    <GradeThresholdBox key={"threshold" + index} gradeThreshold={gradeThresholds[index]} updateGradeThresholds={updateGradeThresholds} num={index} letter={letter} />
+                    <GradeThresholdBox key={"threshold" + index} gradeThreshold={gradeThresholds[index]}
+                                       updateGradeThresholds={updateGradeThresholds} num={index} letter={letter}/>
                 )}
             </div>
+            <label>
+                <input
+                    type="checkbox"
+                    checked={isBasedOnWeights}
+                    onChange={e => setIsBasedOnWeights(e.target.checked)}
+                />
+                Calculate total from entered weights
+            </label>
         </div>
-        <label>
-            <input
-                type="checkbox"
-                checked={isBasedOnWeights}
-                onChange={e => setIsBasedOnWeights(e.target.checked)}
-            />
-            Based upon current Weights
-        </label>
     </main>
 }
+
 export default App

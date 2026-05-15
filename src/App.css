@@ -1,45 +1,67 @@
 #root {
-  max-width: 720px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
 .GridBox, .GridBox2 {
   display: grid;
-  grid-template-columns:  1.5fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   grid-auto-flow: column;
   column-gap: .4rem;
   row-gap: .1rem;
   padding: .5rem;
-  margin: .25rem;
+}
+.GridBox2 {
+  grid-template-rows: 1fr 1fr;
 }
 .GradeBox {
-  border: 1px solid darkblue;
+  border: 1px solid rgba(50, 50, 150, 0.4);
   border-radius: 5px;
+  background-color: rgba(150, 150, 150, 0.2);
+  margin: 1rem;
 }
 .grade {
-  border: 1px solid darkblue;
+  border: 1px solid rgba(50, 50, 150, 0.4);
   border-radius: 5px;
   padding: 1rem;
-  margin: 1rem 2rem;
+  margin: 0 2rem;
   font-size: 3em;
+  background-color: rgba(150, 150, 150, 0.2);
+  text-wrap: balance;
 }
-@media only screen and (max-width: 730px) {
+.assignmentLabel {
+  display: none;
+}
+.aboveLabels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: column;
+  margin: 1rem 0 0 0;
+  column-gap: .5rem;
+  border-bottom: 1px solid rgba(50, 50, 150, 0.4);
+  border-top: 1px solid rgba(50, 50, 150, 0.4);
+}
+@media only screen and (max-width: 850px) {
   .GridBox {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 1rem .25rem;
   }
   .GridBox2 {
     grid-template-columns:  1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
   }
+  .assignmentLabel {
+    display: block;
+  }
+  .aboveLabels {
+    display: none;
+  }
 }
 button {
-  padding: 1rem;
+  padding: .5rem;
   margin: 1rem .5rem;
   width: 190px;
-  border: 1px solid darkblue;
+  border: 1px solid rgba(50, 50, 150, 0.4);
   text-align: center;
+  background-color: rgba(150, 150, 150, 0.2);
 }
