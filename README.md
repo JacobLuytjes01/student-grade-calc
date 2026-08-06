@@ -13,9 +13,6 @@ A React web app to calculate final grades based on assignments.
 - JavaScript
 - CSS
 
-## Available on web
-https://brave-pond-0ce27a210.7.azurestaticapps.net/
-
 ## Using it locally
 - Download repo
 - Have Node.js installed (I use v20.19.4)
